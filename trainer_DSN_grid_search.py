@@ -14,6 +14,68 @@ from sklearn.preprocessing import LabelEncoder
 from model.layers import *
 import os
 
+import time
+import optuna
+import pickle
+import joblib
+import csv
+
+ts = time.time()
+
+def objective(trial):
+    """
+    Define the objective function for Optuna. It evaluates a given model using different hyperparameter configurations.
+    """
+    # Suggest hyperparameters for S3 or general model configurations
+    initial_num_segments = trial.suggest_categorical("initial_num_segments", [2, 4, 8, 16, 24])
+    num_layers = trial.suggest_int("num_layers", 1, 3)
+    segment_multiplier = trial.suggest_categorical("segment_multiplier", [0.5, 1, 2])
+    shuffle_vector_dim = trial.suggest_int("shuffle_vector_dim", 1, 3)
+
+    # Assign the suggested hyperparameters to args or a hyperparameter dictionary
+    args.initial_num_segments = initial_num_segments
+    args.num_layers = num_layers
+    args.segment_multiplier = segment_multiplier
+    args.shuffle_vector_dim = shuffle_vector_dim
+
+    # Set the minimum sequence length required for S3 stacking
+    # You would probably not need this unless your model has the capability to truncate the time-series during augmentation
+    # Then you need to ensure that it has atleast args.min_seq_len number of time steps. 
+    args.min_seq_len = max(args.initial_num_segments, args.initial_num_segments * (args.segment_multiplier ** args.num_layers))
+
+    # Log the hyperparameters used for this trial
+    hyperparam_dict = {
+        "initial_num_segments": args.initial_num_segments, 
+        "num_layers": args.num_layers, 
+        "segment_multiplier": args.segment_multiplier, 
+        "shuffle_vector_dim": args.shuffle_vector_dim
+    }
+    print(hyperparam_dict)
+
+    data_path = args.root
+    # datalist = os.listdir(data_path)
+    # datalist = ["eeg2", "daily_sport", "HAR"]
+    print(args.datalist)
+    datalist = args.datalist
+    datalist.sort()
+
+    args.data = datalist[0]
+    highest_val_acc, corresponding_test_acc, highest_test_acc = main(args)
+    
+    trial.set_user_attr("corresponding_test_acc", corresponding_test_acc) 
+    trial.set_user_attr("highest_test_acc", highest_test_acc) 
+
+    name = f"S3_n{args.initial_num_segments}_l{args.num_layers}_m{args.segment_multiplier}_d{args.shuffle_vector_dim}"
+
+    csv_dir = "grid-search-results"
+    csv_path = f"{csv_dir}/{args.data}_epochs{args.epochs}.csv"
+
+    with open(csv_path, 'a', newline='') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=',',
+                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        spamwriter.writerow([name, highest_val_acc, corresponding_test_acc, highest_test_acc])
+
+    return highest_val_acc
 
 def train(args, model, train_loader, val_loader, test_loader, optimizer, epoch, mask=None, weights=None):
 
@@ -107,7 +169,7 @@ def main(args=None):
     print('Class weights: ', class_weight)
 
     model = SCNN(c_in=X_train.shape[1], c_out=nb_classes, nf=args.ch_size, depth=args.depth, kernel=args.k_size, pad_zero=args.pad_zero,
-                 num_layers=args.num_layers, initial_num_segments=args.initial_num_segments, shuffle_vector_dim=args.shuffle_vector_dim, segment_multiplier=args.segment_multiplier, enable_S3=args.enable_S3)
+                 num_layers=args.num_layers, initial_num_segments=args.initial_num_segments, shuffle_vector_dim=args.shuffle_vector_dim, segment_multiplier=args.segment_multiplier, enable_S3=1)
     model.cuda()
 
     optimizer = torch.optim.Adam(model.parameters(), lr=3e-4)
@@ -125,6 +187,7 @@ def main(args=None):
     highest_val_acc = 0
     corresponding_test_acc = 0
     highest_test_acc = 0
+
     for epoch in range(1, args.epochs + 1):
         output, val_acc, test_acc = train(args, model, trainloader, valloader, testloader, optimizer, epoch, mask, weights=class_weight)
         lr_scheduler.step()
@@ -146,17 +209,17 @@ def main(args=None):
     print('Validating model')
     model.load_state_dict(torch.load(save_path))
     val_acc = evaluate(args, model, valloader, weights=class_weight)
-    print('### data name: {}, best_val_acc {:.3f}'.format(args.data, val_acc))
+    print('### data name: {}, final_val_acc {:.3f}'.format(args.data, val_acc))
 
     print('Testing model')
     model.load_state_dict(torch.load(save_path))
     val_acc = evaluate(args, model, testloader, weights=class_weight)
-    print('### data name: {}, best_test_acc {:.3f}'.format(args.data, val_acc))
+    print('### data name: {}, final_test_acc {:.3f}'.format(args.data, val_acc))
 
     print('### data name: {}, best_val_acc {:.3f}, corr test acc {:.3f}'.format(args.data, highest_val_acc, corresponding_test_acc))
     print('### data name: {}, best_test_acc {:.3f}'.format(args.data, highest_test_acc))
 
-    return highest_val_acc, corresponding_test_acc
+    return highest_val_acc, corresponding_test_acc, highest_test_acc
 
 if __name__ == '__main__':
     print("A")
@@ -204,24 +267,50 @@ if __name__ == '__main__':
     parser.add_argument("--datalist", nargs='+', type=str, help="List of strings")
 
     # num_layers=3, initial_num_segments=4, shuffle_vector_dim=1, segment_multiplier=2
-    parser.add_argument('--num_layers', type=int, default=3, help='number of layers')
-    parser.add_argument('--initial_num_segments', type=int, default=4, help='number of segments in the first layer')
-    parser.add_argument('--shuffle_vector_dim', type=int, default=1, help='dimensions of shuffle vector')
-    parser.add_argument('--segment_multiplier', type=int, default=2, help='multiplier for segment number in consecutive layers')
-    parser.add_argument('--enable_S3', type=int, default=1, help='whether to enable S3. 0 means off, 1 means on.')
+    # parser.add_argument('--num_layers', type=int, default=3, help='number of layers')
+    # parser.add_argument('--initial_num_segments', type=int, default=4, help='number of segments in the first layer')
+    # parser.add_argument('--shuffle_vector_dim', type=int, default=1, help='dimensions of shuffle vector')
+    # parser.add_argument('--segment_multiplier', type=int, default=2, help='multiplier for segment number in consecutive layers')
+    parser.add_argument('--enable_S3', type=int, default=1)
 
     # ITOP settings
     sparselearning.core_kernel.add_sparse_args(parser)
 
     args = parser.parse_args()
 
-    data_path = args.root
-    # datalist = os.listdir(data_path)
-    # datalist = ["eeg2", "daily_sport", "HAR"]
-    print(args.datalist)
-    datalist = args.datalist
-    datalist.sort()
+    csv_dir = "grid-search-results"
+    csv_path = f"{csv_dir}/{args.data}_epochs{args.epochs}.csv"
+    with open(csv_path, 'a', newline='') as csvfile:
+            spamwriter = csv.writer(csvfile, delimiter=',',
+                                    quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            spamwriter.writerow(["name", "highest_val_acc", "corresponding_test_acc", "highest_test_acc"])
 
-    for data in datalist:
-        args.data = data
-        main(args)
+
+    # Set up Optuna for hyperparameter optimization
+    search_space = {
+        "initial_num_segments": [2, 4, 8, 16, 24],
+        "num_layers": [1, 2, 3],
+        "segment_multiplier": [0.5, 1, 2],
+        "shuffle_vector_dim": [1, 2, 3]
+    }
+
+    sampler = optuna.samplers.GridSampler(search_space)
+    study = optuna.create_study(
+        direction="minimize",
+        sampler=sampler,
+        storage='sqlite:///optuna.db',
+        study_name=f"DSN_S3_{args.data}_epochs{args.epochs}",
+        load_if_exists=True
+    )
+
+    # Optimize the objective function
+    study.optimize(objective, n_trials=len(study.sampler._all_grids))
+
+    # Save the Optuna study and sampler if you want to resume the study later.
+    study_file_path = f"optuna_studies/{args.run_name}_study.pkl"
+    joblib.dump(study, study_file_path)
+    with open(study_file_path.replace("study", "sampler"), "wb") as fout:
+        pickle.dump(study.sampler, fout)
+
+    print("Study complete. Best trials:")
+    print(study.best_trials)

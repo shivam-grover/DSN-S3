@@ -172,7 +172,11 @@ class Masking(object):
                         x = x.permute(2, 0, 1)
 
                         new_mask = torch.zeros_like(x, dtype=torch.float32).cuda()
-                        new_mask.data.view(-1)[:num_remain] = 1.0
+                        # new_mask.data.view(-1)[:num_remain] = 1.0
+                        # Commented the above code for UCI datasets and added the one below
+                        # https://github.com/QiaoXiao7282/DSN/issues/1
+                        new_mask.data.contiguous().view(-1)[:num_remain] = 1.0
+
 
                         new_mask = new_mask.permute(1, 2, 0)
                         mask_list.append(new_mask)

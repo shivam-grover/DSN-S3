@@ -4,6 +4,7 @@ import os
 from utils.utils import to_categorical
 import torch.utils.data as data
 import torch
+from sklearn.model_selection import train_test_split
 
 def set_nan_to_zero(a):
     where_are_NaNs = np.isnan(a)
@@ -122,8 +123,8 @@ def load_UCR_data(root, file_name='', normalize_timeseries=2, verbose=True):
     return X_train, y_train, X_test, y_test, nb_classes
 
 
-def load_dataset_mul(dataset_path, dataset_name, normalize_timeseries=False, verbose=True) -> (np.array, np.array):
-    if verbose: print("Loading train / test dataset : ", dataset_name)
+def load_dataset_mul(dataset_path, dataset_name, normalize_timeseries=False, verbose=True, val_split=0.2) -> (np.array, np.array):
+    if verbose: print("Loading train / val /test dataset : ", dataset_name)
 
     root_path = dataset_path + '/' + dataset_name + '/'
     x_train_path = root_path + "X_train.npy"
@@ -152,6 +153,9 @@ def load_dataset_mul(dataset_path, dataset_name, normalize_timeseries=False, ver
             X_train_std = X_train.std()
             X_train = (X_train - X_train_mean) / (X_train_std + 1e-8)
 
+    # Split train into train and validation sets
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=val_split, random_state=42, stratify=y_train)
+
     if verbose: print("Finished processing train dataset..")
 
     # extract labels Y and normalize to [0 - (MAX - 1)] range
@@ -166,11 +170,11 @@ def load_dataset_mul(dataset_path, dataset_name, normalize_timeseries=False, ver
     if verbose:
         print("Finished loading test dataset..")
         print()
-        print("Number of train samples : ", X_train.shape[0], "Number of test samples : ", X_test.shape[0])
+        print("Number of train samples : ", X_train.shape[0], "Number of val samples : ", X_val.shape[0], "Number of test samples : ", X_test.shape[0])
         print("Number of classes : ", nb_classes)
         print("Sequence length : ", X_train.shape[-1])
 
-    return X_train, y_train, X_test, y_test, nb_classes
+    return X_train, y_train, X_val, y_val, X_test, y_test, nb_classes
 
 def TSC_data_loader_128(dataset_path, dataset_name, normalize_timeseries=2):
     Train_dataset = np.loadtxt(
@@ -260,19 +264,16 @@ class Data(data.Dataset):
         else:
             return len(self.test_data)
 
-def get_timeseries_dataset(batch_size=32, x_train=None, y_train=None, x_test=None, y_test=None, n_worker=1):
-    # n_classes = len(np.unique(y_train))
-    # y_train = to_categorical(y_train, n_classes)
-    # y_test = to_categorical(y_test, n_classes)
-
+def get_timeseries_dataset(batch_size=32, x_train=None, y_train=None, x_test=None, y_test=None, x_val=None, y_val=None, n_worker=1):
     trainset = Data(train=True, x_train=x_train, y_train=y_train, x_test=None, y_test=None)
-    valset = Data(train=False, x_train=None, y_train=None, x_test=x_test, y_test=y_test)
+    valset = Data(train=False, x_train=None, y_train=None, x_test=x_val, y_test=y_val)
+    testset = Data(train=False, x_train=None, y_train=None, x_test=x_test, y_test=y_test)
 
     train_loader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True,
                                                num_workers=n_worker, pin_memory=True)
     val_loader = torch.utils.data.DataLoader(valset, batch_size=batch_size, shuffle=False,
                                              num_workers=n_worker, pin_memory=True)
+    test_loader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False,
+                                              num_workers=n_worker, pin_memory=True)
 
-    return train_loader, val_loader
-
-
+    return train_loader, val_loader, test_loader

@@ -6,3 +6,6 @@ pyparsing==2.4.7
 scipy==1.6.2
 torch==1.4.0
 torchvision==0.2.1
+optuna==4.2.1
+sqlalchemy==1.4.54
+alembic==1.8.0

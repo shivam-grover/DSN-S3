@@ -1,0 +1,7 @@
+data/*
+chkpt/*
+logs/
+logs/*
+scripts/
+scripts/*
+optuna*
