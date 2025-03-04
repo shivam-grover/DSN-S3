@@ -70,6 +70,12 @@ Apart from optuna, we also save the results from each model in the folder "grid-
 
 I have added the simple code for this in the trainer_DSN_grid_search.py file.
 
+## Changes made to the original baseline code
+This should act as a guide on what changes you would make to an existing model
+1. Import S3 in the file where your model is [check this line](https://github.com/shivam-grover/DSN-S3/blob/master/model/SCNN.py#L11) (you can use the PyPI module or have the S3.py file accessible to the model like I did [here](https://github.com/shivam-grover/DSN-S3/blob/master/model/S3.py))
+2. In your model's init method, initialise S3 [check this line](https://github.com/shivam-grover/DSN-S3/blob/master/model/SCNN.py#L105)
+3. In your model's forward method, pass the input through the S3 layers first [check this line](https://github.com/shivam-grover/DSN-S3/blob/master/model/SCNN.py#L114)
+
 ## Citation
 
 ```
