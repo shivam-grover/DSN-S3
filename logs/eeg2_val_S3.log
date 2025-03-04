@@ -1,0 +1,721 @@
+A
+['eeg2']
+Namespace(adv=False, batch_size=16, c_size=3, ch_size=47, data='eeg2', datalist=['eeg2'], death='magnitude', death_rate=0.5, decay_frequency=25000, decay_schedule='cosine', density=0.2, depth=4, epochs=100, final_density=0.1, final_prune_epoch=1000, fix=False, fp16=False, growth='random', init_prune_epoch=0, initial_num_segments=16, k_size=39, keep_size=5, l1=0.0, last_dense=False, log_interval=100, lr=0.1, max_threads=0, momentum=0.9, multiplier=1, no_cuda=False, num_classes=2, num_layers=1, optimizer='sgd', pad_zero=False, redistribution='none', resume=None, root='data/', save_features=False, seed=17, segment_multiplier=2, shuffle_vector_dim=1, sparse=True, sparse_init='remain_sort', start_epoch=1, test_batch_size=16, update_frequency=5, valid_split=0.1, weight_decay=0.001)
+Loading train / val /test dataset :  eeg2
+Finished processing train dataset..
+Finished loading test dataset..
+
+Number of train samples :  480 Number of val samples :  120 Number of test samples :  600
+Number of classes :  2
+Sequence length :  256
+Class weights:  [1. 1.]
+Building S3 Layer 0
+Removing biases...
+Removed 0 layers.
+Removing 2D batch norms...
+Removing 1D batch norms...
+ERROR block.inception.0.bn
+ERROR block.inception.1.bn
+ERROR block.inception.2.bn
+ERROR block.inception.3.bn
+ERROR head.1.bn
+### Valid Loss: 0.72292, Valid Acc: 60/120 50.000
+### Valid Loss: 0.72000, Valid Acc: 300/600 50.000
+Epoch: 1, Cur_lr: 0.00030, Train Loss: 0.04127, Train Acc: 302/480 62.917, Val Acc: 50.0, Test Acc: 50.0
+Saving model
+### Valid Loss: 0.58168, Valid Acc: 82/120 68.333
+### Valid Loss: 0.60506, Valid Acc: 401/600 66.833
+Epoch: 2, Cur_lr: 0.00030, Train Loss: 0.03439, Train Acc: 350/480 72.917, Val Acc: 68.33333333333333, Test Acc: 66.83333333333333
+Saving model
+### Valid Loss: 0.52175, Valid Acc: 91/120 75.833
+### Valid Loss: 0.55554, Valid Acc: 439/600 73.167
+Epoch: 3, Cur_lr: 0.00030, Train Loss: 0.03406, Train Acc: 348/480 72.500, Val Acc: 75.83333333333333, Test Acc: 73.16666666666667
+Saving model
+### Valid Loss: 0.58624, Valid Acc: 86/120 71.667
+### Valid Loss: 0.59383, Valid Acc: 442/600 73.667
+Epoch: 4, Cur_lr: 0.00030, Train Loss: 0.02904, Train Acc: 375/480 78.125, Val Acc: 71.66666666666667, Test Acc: 73.66666666666667
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.19192270935141012
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.19186467171980978
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.1920929530707711
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.192077476369011
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.2097025212326026
+### Valid Loss: 0.45167, Valid Acc: 92/120 76.667
+### Valid Loss: 0.48619, Valid Acc: 459/600 76.500
+Epoch: 5, Cur_lr: 0.00030, Train Loss: 0.03053, Train Acc: 368/480 76.667, Val Acc: 76.66666666666667, Test Acc: 76.5
+### Valid Loss: 0.44084, Valid Acc: 97/120 80.833
+### Valid Loss: 0.44085, Valid Acc: 480/600 80.000
+Epoch: 6, Cur_lr: 0.00030, Train Loss: 0.02824, Train Acc: 385/480 80.208, Val Acc: 80.83333333333333, Test Acc: 80.0
+Saving model
+### Valid Loss: 0.42330, Valid Acc: 94/120 78.333
+### Valid Loss: 0.45146, Valid Acc: 486/600 81.000
+Epoch: 7, Cur_lr: 0.00030, Train Loss: 0.02749, Train Acc: 378/480 78.750, Val Acc: 78.33333333333333, Test Acc: 81.0
+Saving model
+### Valid Loss: 0.44078, Valid Acc: 101/120 84.167
+### Valid Loss: 0.43131, Valid Acc: 494/600 82.333
+Epoch: 8, Cur_lr: 0.00030, Train Loss: 0.02632, Train Acc: 392/480 81.667, Val Acc: 84.16666666666667, Test Acc: 82.33333333333333
+Saving model
+### Valid Loss: 0.41622, Valid Acc: 97/120 80.833
+### Valid Loss: 0.45193, Valid Acc: 480/600 80.000
+Epoch: 9, Cur_lr: 0.00030, Train Loss: 0.02316, Train Acc: 424/480 88.333, Val Acc: 80.83333333333333, Test Acc: 80.0
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.24312350794922094
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.24274045958065876
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.24341756528266262
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.24282945061577926
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.2596219617534057
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 829
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 633
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 523
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 505
+Death rate: 0.48100794336156577
+
+### Valid Loss: 0.50974, Valid Acc: 89/120 74.167
+### Valid Loss: 0.50068, Valid Acc: 472/600 78.667
+Epoch: 10, Cur_lr: 0.00030, Train Loss: 0.02387, Train Acc: 408/480 85.000, Val Acc: 74.16666666666667, Test Acc: 78.66666666666667
+### Valid Loss: 0.42042, Valid Acc: 95/120 79.167
+### Valid Loss: 0.40688, Valid Acc: 495/600 82.500
+Epoch: 11, Cur_lr: 0.00030, Train Loss: 0.02601, Train Acc: 400/480 83.333, Val Acc: 79.16666666666667, Test Acc: 82.5
+### Valid Loss: 0.48374, Valid Acc: 95/120 79.167
+### Valid Loss: 0.46034, Valid Acc: 472/600 78.667
+Epoch: 12, Cur_lr: 0.00029, Train Loss: 0.02360, Train Acc: 419/480 87.292, Val Acc: 79.16666666666667, Test Acc: 78.66666666666667
+### Valid Loss: 0.40531, Valid Acc: 99/120 82.500
+### Valid Loss: 0.38213, Valid Acc: 506/600 84.333
+Epoch: 13, Cur_lr: 0.00029, Train Loss: 0.02451, Train Acc: 406/480 84.583, Val Acc: 82.5, Test Acc: 84.33333333333333
+### Valid Loss: 0.38910, Valid Acc: 104/120 86.667
+### Valid Loss: 0.41433, Valid Acc: 497/600 82.833
+Epoch: 14, Cur_lr: 0.00029, Train Loss: 0.02166, Train Acc: 419/480 87.292, Val Acc: 86.66666666666667, Test Acc: 82.83333333333333
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.2862029072984256
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.2860442711053847
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.2867445918600287
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.2862918983335461
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.30196606757156924
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 917
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 857
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 801
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 825
+Death rate: 0.45795166826948425
+
+### Valid Loss: 0.42418, Valid Acc: 96/120 80.000
+### Valid Loss: 0.42924, Valid Acc: 481/600 80.167
+Epoch: 15, Cur_lr: 0.00029, Train Loss: 0.02001, Train Acc: 429/480 89.375, Val Acc: 80.0, Test Acc: 80.16666666666667
+Saving model
+### Valid Loss: 0.43470, Valid Acc: 95/120 79.167
+### Valid Loss: 0.45949, Valid Acc: 481/600 80.167
+Epoch: 16, Cur_lr: 0.00029, Train Loss: 0.02153, Train Acc: 424/480 88.333, Val Acc: 79.16666666666667, Test Acc: 80.16666666666667
+### Valid Loss: 0.41074, Valid Acc: 95/120 79.167
+### Valid Loss: 0.38396, Valid Acc: 513/600 85.500
+Epoch: 17, Cur_lr: 0.00029, Train Loss: 0.01897, Train Acc: 434/480 90.417, Val Acc: 79.16666666666667, Test Acc: 85.5
+Saving model
+### Valid Loss: 0.38294, Valid Acc: 101/120 84.167
+### Valid Loss: 0.38728, Valid Acc: 499/600 83.167
+Epoch: 18, Cur_lr: 0.00029, Train Loss: 0.01870, Train Acc: 435/480 90.625, Val Acc: 84.16666666666667, Test Acc: 83.16666666666667
+Saving model
+### Valid Loss: 0.43766, Valid Acc: 98/120 81.667
+### Valid Loss: 0.40728, Valid Acc: 494/600 82.333
+Epoch: 19, Cur_lr: 0.00028, Train Loss: 0.01808, Train Acc: 435/480 90.625, Val Acc: 81.66666666666667, Test Acc: 82.33333333333333
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.3225886331363923
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.322886559645274
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.32354818864551776
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.323068410890955
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.3378635228759592
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1529
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1203
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1105
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1139
+Death rate: 0.42692314190604286
+
+### Valid Loss: 0.34731, Valid Acc: 104/120 86.667
+### Valid Loss: 0.33612, Valid Acc: 524/600 87.333
+Epoch: 20, Cur_lr: 0.00028, Train Loss: 0.01810, Train Acc: 436/480 90.833, Val Acc: 86.66666666666667, Test Acc: 87.33333333333333
+### Valid Loss: 0.34933, Valid Acc: 104/120 86.667
+### Valid Loss: 0.34826, Valid Acc: 521/600 86.833
+Epoch: 21, Cur_lr: 0.00028, Train Loss: 0.01533, Train Acc: 452/480 94.167, Val Acc: 86.66666666666667, Test Acc: 86.83333333333333
+Saving model
+### Valid Loss: 0.36012, Valid Acc: 101/120 84.167
+### Valid Loss: 0.32463, Valid Acc: 522/600 87.000
+Epoch: 22, Cur_lr: 0.00028, Train Loss: 0.01586, Train Acc: 444/480 92.500, Val Acc: 84.16666666666667, Test Acc: 87.0
+### Valid Loss: 0.45451, Valid Acc: 96/120 80.000
+### Valid Loss: 0.38491, Valid Acc: 492/600 82.000
+Epoch: 23, Cur_lr: 0.00028, Train Loss: 0.01521, Train Acc: 452/480 94.167, Val Acc: 80.0, Test Acc: 82.0
+Saving model
+### Valid Loss: 0.36463, Valid Acc: 100/120 83.333
+### Valid Loss: 0.35199, Valid Acc: 508/600 84.667
+Epoch: 24, Cur_lr: 0.00028, Train Loss: 0.01491, Train Acc: 454/480 94.583, Val Acc: 83.33333333333333, Test Acc: 84.66666666666667
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.35332923200736693
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.35345304562144764
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.35419592730593186
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.35357685923552834
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.36780818612976746
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1880
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1596
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1446
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1346
+Death rate: 0.38911477313839055
+
+### Valid Loss: 0.32062, Valid Acc: 108/120 90.000
+### Valid Loss: 0.28766, Valid Acc: 541/600 90.167
+Epoch: 25, Cur_lr: 0.00027, Train Loss: 0.01260, Train Acc: 458/480 95.417, Val Acc: 90.0, Test Acc: 90.16666666666667
+Saving model
+### Valid Loss: 0.30373, Valid Acc: 105/120 87.500
+### Valid Loss: 0.31908, Valid Acc: 529/600 88.167
+Epoch: 26, Cur_lr: 0.00027, Train Loss: 0.01227, Train Acc: 465/480 96.875, Val Acc: 87.5, Test Acc: 88.16666666666667
+Saving model
+### Valid Loss: 0.30313, Valid Acc: 109/120 90.833
+### Valid Loss: 0.26784, Valid Acc: 543/600 90.500
+Epoch: 27, Cur_lr: 0.00027, Train Loss: 0.01057, Train Acc: 471/480 98.125, Val Acc: 90.83333333333333, Test Acc: 90.5
+Saving model
+### Valid Loss: 0.31244, Valid Acc: 102/120 85.000
+### Valid Loss: 0.28964, Valid Acc: 535/600 89.167
+Epoch: 28, Cur_lr: 0.00027, Train Loss: 0.01121, Train Acc: 466/480 97.083, Val Acc: 85.0, Test Acc: 89.16666666666667
+### Valid Loss: 0.28938, Valid Acc: 105/120 87.500
+### Valid Loss: 0.24817, Valid Acc: 550/600 91.667
+Epoch: 29, Cur_lr: 0.00026, Train Loss: 0.01238, Train Acc: 457/480 95.208, Val Acc: 87.5, Test Acc: 91.66666666666667
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.37837053545518917
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.3786104243324705
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.3787264995956712
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.3788387056834318
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.392257964413808
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2025
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1795
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1687
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1571
+Death rate: 0.3459795163750895
+
+### Valid Loss: 0.32145, Valid Acc: 108/120 90.000
+### Valid Loss: 0.29188, Valid Acc: 538/600 89.667
+Epoch: 30, Cur_lr: 0.00026, Train Loss: 0.01115, Train Acc: 466/480 97.083, Val Acc: 90.0, Test Acc: 89.66666666666667
+### Valid Loss: 0.28255, Valid Acc: 110/120 91.667
+### Valid Loss: 0.25821, Valid Acc: 556/600 92.667
+Epoch: 31, Cur_lr: 0.00026, Train Loss: 0.01053, Train Acc: 471/480 98.125, Val Acc: 91.66666666666667, Test Acc: 92.66666666666667
+Saving model
+### Valid Loss: 0.28569, Valid Acc: 110/120 91.667
+### Valid Loss: 0.26262, Valid Acc: 554/600 92.333
+Epoch: 32, Cur_lr: 0.00026, Train Loss: 0.00970, Train Acc: 472/480 98.333, Val Acc: 91.66666666666667, Test Acc: 92.33333333333333
+Saving model
+### Valid Loss: 0.30291, Valid Acc: 107/120 89.167
+### Valid Loss: 0.27836, Valid Acc: 541/600 90.167
+Epoch: 33, Cur_lr: 0.00025, Train Loss: 0.01193, Train Acc: 460/480 95.833, Val Acc: 89.16666666666667, Test Acc: 90.16666666666667
+### Valid Loss: 0.32032, Valid Acc: 104/120 86.667
+### Valid Loss: 0.29854, Valid Acc: 532/600 88.667
+Epoch: 34, Cur_lr: 0.00025, Train Loss: 0.01249, Train Acc: 452/480 94.167, Val Acc: 86.66666666666667, Test Acc: 88.66666666666667
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.3985405470240237
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.39870305239250464
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.398768828374985
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.39907449323474675
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4119517532448488
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2528
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2378
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2168
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1742
+Death rate: 0.29917503534302375
+
+### Valid Loss: 0.28501, Valid Acc: 108/120 90.000
+### Valid Loss: 0.25050, Valid Acc: 548/600 91.333
+Epoch: 35, Cur_lr: 0.00025, Train Loss: 0.00948, Train Acc: 472/480 98.333, Val Acc: 90.0, Test Acc: 91.33333333333333
+Saving model
+### Valid Loss: 0.30607, Valid Acc: 104/120 86.667
+### Valid Loss: 0.28664, Valid Acc: 529/600 88.167
+Epoch: 36, Cur_lr: 0.00025, Train Loss: 0.01111, Train Acc: 462/480 96.250, Val Acc: 86.66666666666667, Test Acc: 88.16666666666667
+### Valid Loss: 0.35710, Valid Acc: 99/120 82.500
+### Valid Loss: 0.29849, Valid Acc: 533/600 88.833
+Epoch: 37, Cur_lr: 0.00024, Train Loss: 0.01096, Train Acc: 460/480 95.833, Val Acc: 82.5, Test Acc: 88.83333333333333
+### Valid Loss: 0.28919, Valid Acc: 105/120 87.500
+### Valid Loss: 0.29013, Valid Acc: 528/600 88.000
+Epoch: 38, Cur_lr: 0.00024, Train Loss: 0.01033, Train Acc: 469/480 97.708, Val Acc: 87.5, Test Acc: 88.0
+### Valid Loss: 0.29947, Valid Acc: 106/120 88.333
+### Valid Loss: 0.27081, Valid Acc: 540/600 90.000
+Epoch: 39, Cur_lr: 0.00024, Train Loss: 0.00997, Train Acc: 470/480 97.917, Val Acc: 88.33333333333333, Test Acc: 90.0
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.4143886896263537
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.41428809106491316
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4144505964333941
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4147562612931558
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.42730677787627613
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3051
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2875
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2481
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1913
+Death rate: 0.2505
+
+### Valid Loss: 0.25455, Valid Acc: 107/120 89.167
+### Valid Loss: 0.21848, Valid Acc: 558/600 93.000
+Epoch: 40, Cur_lr: 0.00023, Train Loss: 0.00857, Train Acc: 473/480 98.542, Val Acc: 89.16666666666667, Test Acc: 93.0
+Saving model
+### Valid Loss: 0.23324, Valid Acc: 109/120 90.833
+### Valid Loss: 0.21795, Valid Acc: 559/600 93.167
+Epoch: 41, Cur_lr: 0.00023, Train Loss: 0.00982, Train Acc: 470/480 97.917, Val Acc: 90.83333333333333, Test Acc: 93.16666666666667
+### Valid Loss: 0.33269, Valid Acc: 104/120 86.667
+### Valid Loss: 0.25177, Valid Acc: 546/600 91.000
+Epoch: 42, Cur_lr: 0.00023, Train Loss: 0.00985, Train Acc: 467/480 97.292, Val Acc: 86.66666666666667, Test Acc: 91.0
+### Valid Loss: 0.26612, Valid Acc: 109/120 90.833
+### Valid Loss: 0.22993, Valid Acc: 557/600 92.833
+Epoch: 43, Cur_lr: 0.00022, Train Loss: 0.00912, Train Acc: 470/480 97.917, Val Acc: 90.83333333333333, Test Acc: 92.83333333333333
+### Valid Loss: 0.25173, Valid Acc: 110/120 91.667
+### Valid Loss: 0.23359, Valid Acc: 561/600 93.500
+Epoch: 44, Cur_lr: 0.00022, Train Loss: 0.00875, Train Acc: 471/480 98.125, Val Acc: 91.66666666666667, Test Acc: 93.5
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.42638313349042184
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.42663076071858325
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4264992087536225
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4267429668063439
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.439134782678624
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3323
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2975
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2723
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2343
+Death rate: 0.20182496465697614
+
+### Valid Loss: 0.26663, Valid Acc: 110/120 91.667
+### Valid Loss: 0.24472, Valid Acc: 550/600 91.667
+Epoch: 45, Cur_lr: 0.00022, Train Loss: 0.00970, Train Acc: 469/480 97.708, Val Acc: 91.66666666666667, Test Acc: 91.66666666666667
+### Valid Loss: 0.30878, Valid Acc: 106/120 88.333
+### Valid Loss: 0.30725, Valid Acc: 529/600 88.167
+Epoch: 46, Cur_lr: 0.00022, Train Loss: 0.01007, Train Acc: 465/480 96.875, Val Acc: 88.33333333333333, Test Acc: 88.16666666666667
+### Valid Loss: 0.30281, Valid Acc: 105/120 87.500
+### Valid Loss: 0.28166, Valid Acc: 532/600 88.667
+Epoch: 47, Cur_lr: 0.00021, Train Loss: 0.00857, Train Acc: 471/480 98.125, Val Acc: 87.5, Test Acc: 88.66666666666667
+Saving model
+### Valid Loss: 0.26649, Valid Acc: 107/120 89.167
+### Valid Loss: 0.25942, Valid Acc: 545/600 90.833
+Epoch: 48, Cur_lr: 0.00021, Train Loss: 0.00851, Train Acc: 473/480 98.542, Val Acc: 89.16666666666667, Test Acc: 90.83333333333333
+Saving model
+### Valid Loss: 0.32107, Valid Acc: 105/120 87.500
+### Valid Loss: 0.24399, Valid Acc: 551/600 91.833
+Epoch: 49, Cur_lr: 0.00021, Train Loss: 0.00930, Train Acc: 468/480 97.500, Val Acc: 87.5, Test Acc: 91.83333333333333
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.4353402746340727
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.4354215273183132
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4354176581428732
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4359516043535962
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.44790691997884546
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3655
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3403
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3193
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2267
+Death rate: 0.15502048362491025
+
+### Valid Loss: 0.35075, Valid Acc: 100/120 83.333
+### Valid Loss: 0.28625, Valid Acc: 537/600 89.500
+Epoch: 50, Cur_lr: 0.00020, Train Loss: 0.00725, Train Acc: 478/480 99.583, Val Acc: 83.33333333333333, Test Acc: 89.5
+Saving model
+### Valid Loss: 0.24943, Valid Acc: 109/120 90.833
+### Valid Loss: 0.24040, Valid Acc: 547/600 91.167
+Epoch: 51, Cur_lr: 0.00020, Train Loss: 0.00893, Train Acc: 469/480 97.708, Val Acc: 90.83333333333333, Test Acc: 91.16666666666667
+### Valid Loss: 0.28567, Valid Acc: 110/120 91.667
+### Valid Loss: 0.22271, Valid Acc: 557/600 92.833
+Epoch: 52, Cur_lr: 0.00020, Train Loss: 0.00964, Train Acc: 465/480 96.875, Val Acc: 91.66666666666667, Test Acc: 92.83333333333333
+### Valid Loss: 0.25695, Valid Acc: 111/120 92.500
+### Valid Loss: 0.22921, Valid Acc: 561/600 93.500
+Epoch: 53, Cur_lr: 0.00019, Train Loss: 0.00691, Train Acc: 479/480 99.792, Val Acc: 92.5, Test Acc: 93.5
+Saving model
+### Valid Loss: 0.24986, Valid Acc: 109/120 90.833
+### Valid Loss: 0.20572, Valid Acc: 567/600 94.500
+Epoch: 54, Cur_lr: 0.00019, Train Loss: 0.00797, Train Acc: 474/480 98.750, Val Acc: 90.83333333333333, Test Acc: 94.5
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44169732988202887
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44175149833818916
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4417050682329089
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.44204555567163084
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4540366306742871
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3261
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3133
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 3019
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2301
+Death rate: 0.11188522686160932
+
+### Valid Loss: 0.26114, Valid Acc: 108/120 90.000
+### Valid Loss: 0.20605, Valid Acc: 568/600 94.667
+Epoch: 55, Cur_lr: 0.00019, Train Loss: 0.00615, Train Acc: 480/480 100.000, Val Acc: 90.0, Test Acc: 94.66666666666667
+Saving model
+### Valid Loss: 0.25432, Valid Acc: 106/120 88.333
+### Valid Loss: 0.20754, Valid Acc: 568/600 94.667
+Epoch: 56, Cur_lr: 0.00018, Train Loss: 0.00680, Train Acc: 476/480 99.167, Val Acc: 88.33333333333333, Test Acc: 94.66666666666667
+### Valid Loss: 0.28623, Valid Acc: 107/120 89.167
+### Valid Loss: 0.22048, Valid Acc: 562/600 93.667
+Epoch: 57, Cur_lr: 0.00018, Train Loss: 0.00806, Train Acc: 471/480 98.125, Val Acc: 89.16666666666667, Test Acc: 93.66666666666667
+### Valid Loss: 0.32219, Valid Acc: 104/120 86.667
+### Valid Loss: 0.25845, Valid Acc: 537/600 89.500
+Epoch: 58, Cur_lr: 0.00018, Train Loss: 0.00851, Train Acc: 466/480 97.083, Val Acc: 86.66666666666667, Test Acc: 89.5
+### Valid Loss: 0.30771, Valid Acc: 104/120 86.667
+### Valid Loss: 0.23567, Valid Acc: 556/600 92.667
+Epoch: 59, Cur_lr: 0.00018, Train Loss: 0.00786, Train Acc: 470/480 97.917, Val Acc: 86.66666666666667, Test Acc: 92.66666666666667
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44573287986597177
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44580252502389217
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.44569031893613154
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4461391432871741
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4579893905578425
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2821
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2807
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2671
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2275
+Death rate: 0.07407685809395646
+
+### Valid Loss: 0.26164, Valid Acc: 110/120 91.667
+### Valid Loss: 0.21594, Valid Acc: 563/600 93.833
+Epoch: 60, Cur_lr: 0.00017, Train Loss: 0.00662, Train Acc: 476/480 99.167, Val Acc: 91.66666666666667, Test Acc: 93.83333333333333
+### Valid Loss: 0.27236, Valid Acc: 109/120 90.833
+### Valid Loss: 0.23985, Valid Acc: 549/600 91.500
+Epoch: 61, Cur_lr: 0.00017, Train Loss: 0.00743, Train Acc: 473/480 98.542, Val Acc: 90.83333333333333, Test Acc: 91.5
+### Valid Loss: 0.25496, Valid Acc: 110/120 91.667
+### Valid Loss: 0.21621, Valid Acc: 562/600 93.667
+Epoch: 62, Cur_lr: 0.00017, Train Loss: 0.00648, Train Acc: 476/480 99.167, Val Acc: 91.66666666666667, Test Acc: 93.66666666666667
+### Valid Loss: 0.22401, Valid Acc: 111/120 92.500
+### Valid Loss: 0.19697, Valid Acc: 570/600 95.000
+Epoch: 63, Cur_lr: 0.00016, Train Loss: 0.00591, Train Acc: 479/480 99.792, Val Acc: 92.5, Test Acc: 95.0
+Saving model
+### Valid Loss: 0.23343, Valid Acc: 108/120 90.000
+### Valid Loss: 0.21932, Valid Acc: 559/600 93.167
+Epoch: 64, Cur_lr: 0.00016, Train Loss: 0.00582, Train Acc: 479/480 99.792, Val Acc: 90.0, Test Acc: 93.16666666666667
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44812789946334536
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.4481395069896654
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4481588528668655
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4484838636038274
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4603233921453798
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2029
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 2105
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1943
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1575
+Death rate: 0.04304833173051498
+
+### Valid Loss: 0.24211, Valid Acc: 108/120 90.000
+### Valid Loss: 0.18679, Valid Acc: 576/600 96.000
+Epoch: 65, Cur_lr: 0.00016, Train Loss: 0.00578, Train Acc: 480/480 100.000, Val Acc: 90.0, Test Acc: 96.0
+Saving model
+### Valid Loss: 0.25639, Valid Acc: 108/120 90.000
+### Valid Loss: 0.19424, Valid Acc: 566/600 94.333
+Epoch: 66, Cur_lr: 0.00015, Train Loss: 0.00581, Train Acc: 478/480 99.583, Val Acc: 90.0, Test Acc: 94.33333333333333
+### Valid Loss: 0.22914, Valid Acc: 110/120 91.667
+### Valid Loss: 0.19742, Valid Acc: 571/600 95.167
+Epoch: 67, Cur_lr: 0.00015, Train Loss: 0.00639, Train Acc: 474/480 98.750, Val Acc: 91.66666666666667, Test Acc: 95.16666666666667
+### Valid Loss: 0.23641, Valid Acc: 107/120 89.167
+### Valid Loss: 0.19550, Valid Acc: 568/600 94.667
+Epoch: 68, Cur_lr: 0.00015, Train Loss: 0.00562, Train Acc: 478/480 99.583, Val Acc: 89.16666666666667, Test Acc: 94.66666666666667
+Saving model
+### Valid Loss: 0.22937, Valid Acc: 111/120 92.500
+### Valid Loss: 0.19575, Valid Acc: 568/600 94.667
+Epoch: 69, Cur_lr: 0.00015, Train Loss: 0.00492, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 94.66666666666667
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44923835281463165
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44919966106023146
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.44926930621815186
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.44959044777967366
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.46139625708265886
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1463
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1489
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1395
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 1229
+Death rate: 0.01999205663843396
+
+### Valid Loss: 0.22101, Valid Acc: 110/120 91.667
+### Valid Loss: 0.19181, Valid Acc: 572/600 95.333
+Epoch: 70, Cur_lr: 0.00014, Train Loss: 0.00585, Train Acc: 479/480 99.792, Val Acc: 91.66666666666667, Test Acc: 95.33333333333333
+### Valid Loss: 0.22876, Valid Acc: 112/120 93.333
+### Valid Loss: 0.18758, Valid Acc: 572/600 95.333
+Epoch: 71, Cur_lr: 0.00014, Train Loss: 0.00498, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 95.33333333333333
+### Valid Loss: 0.23460, Valid Acc: 110/120 91.667
+### Valid Loss: 0.18878, Valid Acc: 571/600 95.167
+Epoch: 72, Cur_lr: 0.00014, Train Loss: 0.00542, Train Acc: 480/480 100.000, Val Acc: 91.66666666666667, Test Acc: 95.16666666666667
+### Valid Loss: 0.23655, Valid Acc: 110/120 91.667
+### Valid Loss: 0.18861, Valid Acc: 573/600 95.500
+Epoch: 73, Cur_lr: 0.00014, Train Loss: 0.00558, Train Acc: 479/480 99.792, Val Acc: 91.66666666666667, Test Acc: 95.5
+### Valid Loss: 0.21193, Valid Acc: 112/120 93.333
+### Valid Loss: 0.17659, Valid Acc: 573/600 95.500
+Epoch: 74, Cur_lr: 0.00013, Train Loss: 0.00551, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 95.5
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44956336355159354
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.4495324101480733
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.44960205530599373
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.44989998181487545
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4617141429900008
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 771
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 765
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 775
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 693
+Death rate: 0.00579407253939398
+
+### Valid Loss: 0.22878, Valid Acc: 112/120 93.333
+### Valid Loss: 0.18778, Valid Acc: 572/600 95.333
+Epoch: 75, Cur_lr: 0.00013, Train Loss: 0.00461, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 95.33333333333333
+Saving model
+### Valid Loss: 0.21221, Valid Acc: 112/120 93.333
+### Valid Loss: 0.19653, Valid Acc: 567/600 94.500
+Epoch: 76, Cur_lr: 0.00013, Train Loss: 0.00536, Train Acc: 478/480 99.583, Val Acc: 93.33333333333333, Test Acc: 94.5
+### Valid Loss: 0.22999, Valid Acc: 110/120 91.667
+### Valid Loss: 0.19201, Valid Acc: 569/600 94.833
+Epoch: 77, Cur_lr: 0.00013, Train Loss: 0.00457, Train Acc: 480/480 100.000, Val Acc: 91.66666666666667, Test Acc: 94.83333333333333
+Saving model
+### Valid Loss: 0.21700, Valid Acc: 112/120 93.333
+### Valid Loss: 0.18069, Valid Acc: 571/600 95.167
+Epoch: 78, Cur_lr: 0.00012, Train Loss: 0.00493, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 95.16666666666667
+### Valid Loss: 0.20989, Valid Acc: 113/120 94.167
+### Valid Loss: 0.17660, Valid Acc: 572/600 95.333
+Epoch: 79, Cur_lr: 0.00012, Train Loss: 0.00509, Train Acc: 480/480 100.000, Val Acc: 94.16666666666667, Test Acc: 95.33333333333333
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.4496136628323138
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44956723272703353
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4496678312884741
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4499580194464758
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4617652317965379
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 233
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 233
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 231
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 223
+Death rate: 0.001
+
+### Valid Loss: 0.23451, Valid Acc: 111/120 92.500
+### Valid Loss: 0.18383, Valid Acc: 574/600 95.667
+Epoch: 80, Cur_lr: 0.00012, Train Loss: 0.00463, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 95.66666666666667
+### Valid Loss: 0.22370, Valid Acc: 111/120 92.500
+### Valid Loss: 0.17864, Valid Acc: 569/600 94.833
+Epoch: 81, Cur_lr: 0.00012, Train Loss: 0.00457, Train Acc: 479/480 99.792, Val Acc: 92.5, Test Acc: 94.83333333333333
+### Valid Loss: 0.22143, Valid Acc: 110/120 91.667
+### Valid Loss: 0.19127, Valid Acc: 568/600 94.667
+Epoch: 82, Cur_lr: 0.00012, Train Loss: 0.00601, Train Acc: 477/480 99.375, Val Acc: 91.66666666666667, Test Acc: 94.66666666666667
+### Valid Loss: 0.23382, Valid Acc: 111/120 92.500
+### Valid Loss: 0.19919, Valid Acc: 566/600 94.333
+Epoch: 83, Cur_lr: 0.00012, Train Loss: 0.00557, Train Acc: 475/480 98.958, Val Acc: 92.5, Test Acc: 94.33333333333333
+### Valid Loss: 0.23307, Valid Acc: 109/120 90.833
+### Valid Loss: 0.19150, Valid Acc: 568/600 94.667
+Epoch: 84, Cur_lr: 0.00011, Train Loss: 0.00538, Train Acc: 479/480 99.792, Val Acc: 90.83333333333333, Test Acc: 94.66666666666667
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44965622376215403
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44961753200775384
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.44973360727095446
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.45002379542895615
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.46182010495911474
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+Death rate: 0.001
+
+### Valid Loss: 0.22670, Valid Acc: 112/120 93.333
+### Valid Loss: 0.18587, Valid Acc: 572/600 95.333
+Epoch: 85, Cur_lr: 0.00011, Train Loss: 0.00455, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 95.33333333333333
+Saving model
+### Valid Loss: 0.21153, Valid Acc: 112/120 93.333
+### Valid Loss: 0.17322, Valid Acc: 576/600 96.000
+Epoch: 86, Cur_lr: 0.00011, Train Loss: 0.00465, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 96.0
+### Valid Loss: 0.22065, Valid Acc: 111/120 92.500
+### Valid Loss: 0.17662, Valid Acc: 573/600 95.500
+Epoch: 87, Cur_lr: 0.00011, Train Loss: 0.00431, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 95.5
+Saving model
+### Valid Loss: 0.21167, Valid Acc: 111/120 92.500
+### Valid Loss: 0.17451, Valid Acc: 575/600 95.833
+Epoch: 88, Cur_lr: 0.00011, Train Loss: 0.00465, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 95.83333333333333
+### Valid Loss: 0.21049, Valid Acc: 110/120 91.667
+### Valid Loss: 0.18805, Valid Acc: 572/600 95.333
+Epoch: 89, Cur_lr: 0.00011, Train Loss: 0.00536, Train Acc: 477/480 99.375, Val Acc: 91.66666666666667, Test Acc: 95.33333333333333
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.4497181305691944
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44966009293759407
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.44978003737623473
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.45007796388511645
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4618702476766419
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 66
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 66
+Death rate: 0.001
+
+### Valid Loss: 0.25737, Valid Acc: 108/120 90.000
+### Valid Loss: 0.19529, Valid Acc: 561/600 93.500
+Epoch: 90, Cur_lr: 0.00011, Train Loss: 0.00578, Train Acc: 478/480 99.583, Val Acc: 90.0, Test Acc: 93.5
+### Valid Loss: 0.23068, Valid Acc: 111/120 92.500
+### Valid Loss: 0.17449, Valid Acc: 571/600 95.167
+Epoch: 91, Cur_lr: 0.00010, Train Loss: 0.00497, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 95.16666666666667
+### Valid Loss: 0.21011, Valid Acc: 111/120 92.500
+### Valid Loss: 0.15991, Valid Acc: 575/600 95.833
+Epoch: 92, Cur_lr: 0.00010, Train Loss: 0.00476, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 95.83333333333333
+### Valid Loss: 0.21694, Valid Acc: 112/120 93.333
+### Valid Loss: 0.17002, Valid Acc: 578/600 96.333
+Epoch: 93, Cur_lr: 0.00010, Train Loss: 0.00474, Train Acc: 480/480 100.000, Val Acc: 93.33333333333333, Test Acc: 96.33333333333333
+### Valid Loss: 0.21813, Valid Acc: 111/120 92.500
+### Valid Loss: 0.16988, Valid Acc: 576/600 96.000
+Epoch: 94, Cur_lr: 0.00010, Train Loss: 0.00407, Train Acc: 480/480 100.000, Val Acc: 92.5, Test Acc: 96.0
+Saving model
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.44976842984991466
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.44972586892007443
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4498419441832751
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.4501360015167168
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.4619279591062486
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+Death rate: 0.001
+
+### Valid Loss: 0.20980, Valid Acc: 111/120 92.500
+### Valid Loss: 0.16957, Valid Acc: 577/600 96.167
+Epoch: 95, Cur_lr: 0.00010, Train Loss: 0.00409, Train Acc: 479/480 99.792, Val Acc: 92.5, Test Acc: 96.16666666666667
+### Valid Loss: 0.20059, Valid Acc: 113/120 94.167
+### Valid Loss: 0.17278, Valid Acc: 571/600 95.167
+Epoch: 96, Cur_lr: 0.00010, Train Loss: 0.00454, Train Acc: 478/480 99.583, Val Acc: 94.16666666666667, Test Acc: 95.16666666666667
+### Valid Loss: 0.20641, Valid Acc: 110/120 91.667
+### Valid Loss: 0.18064, Valid Acc: 571/600 95.167/home/23bx19/.local/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:117: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+
+Epoch: 97, Cur_lr: 0.00010, Train Loss: 0.00440, Train Acc: 479/480 99.792, Val Acc: 91.66666666666667, Test Acc: 95.16666666666667
+### Valid Loss: 0.19795, Valid Acc: 112/120 93.333
+### Valid Loss: 0.16877, Valid Acc: 572/600 95.333
+Epoch: 98, Cur_lr: 0.00010, Train Loss: 0.00456, Train Acc: 479/480 99.792, Val Acc: 93.33333333333333, Test Acc: 95.33333333333333
+### Valid Loss: 0.19331, Valid Acc: 113/120 94.167
+### Valid Loss: 0.17491, Valid Acc: 573/600 95.500
+Epoch: 99, Cur_lr: 0.00010, Train Loss: 0.00451, Train Acc: 480/480 100.000, Val Acc: 94.16666666666667, Test Acc: 95.5
+curr_density: 0.1523, final_density:0.1000
+curr_w_density: 0.1333
+Layerwise percentage of the fired weights of block.inception.0.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.0.convs.conv1d.weight is: 0.449818729130635
+Layerwise percentage of the fired weights of block.inception.1.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.1.convs.conv1d.weight is: 0.4497916449025548
+Layerwise percentage of the fired weights of block.inception.2.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.2.convs.conv1d.weight is: 0.4498883742885554
+Layerwise percentage of the fired weights of block.inception.3.bottleneck.conv1d.weight is: 1.0
+Layerwise percentage of the fired weights of block.inception.3.convs.conv1d.weight is: 0.450174693271117
+Layerwise percentage of the fired weights of head.1.conv.conv1d.weight is: 1.0
+The percentage of the total fired weights is: 0.46197715573476583
+block.inception.0.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+block.inception.1.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+block.inception.2.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 70
+block.inception.3.convs.conv1d.weight: 34459.0->34459, density: 0.133, diff: 72
+Death rate: 0.001
+
+### Valid Loss: 0.20649, Valid Acc: 111/120 92.500
+### Valid Loss: 0.17232, Valid Acc: 572/600 95.333
+Epoch: 100, Cur_lr: 0.00010, Train Loss: 0.00417, Train Acc: 479/480 99.792, Val Acc: 92.5, Test Acc: 95.33333333333333
+Validating model
+### Valid Loss: 0.21813, Valid Acc: 111/120 92.500
+### data name: eeg2, best_val_acc 92.500
+Testing model
+### Valid Loss: 0.16988, Valid Acc: 576/600 96.000
+### data name: eeg2, best_test_acc 96.000
